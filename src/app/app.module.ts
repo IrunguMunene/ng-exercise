@@ -2,7 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { HttpClientModule } from '@angular/common/http';
+
 import { UserService } from '../app/core/services/user.service';
+import { LoginService } from '../app/core/services/login.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -15,7 +17,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 @NgModule({
   declarations: [AppComponent, HomeComponent, LandingComponent, UserDetailComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, CoreModule],
-  providers: [UserService],
+  providers: [UserService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

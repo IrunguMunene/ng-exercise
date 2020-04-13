@@ -1,10 +1,10 @@
 <div class="app-content">
-  <div class="user-profile" *ngIf="isLoggedIn">
+  <div class="user-profile" *ngIf="isLoggedIn | async">
     Hey {{ user.firstName }} {{ user.lastName }}! Good day ahead!
   </div>
   <div class="action-btn">
-    <button class="app-btn" *ngIf="!isLoggedIn" (click)="login()">Login</button>
-    <button class="app-btn" *ngIf="isLoggedIn" (click)="logout()">
+    <button class="app-btn" *ngIf="!(isLoggedIn | async)" (click)="login()">Login</button>
+    <button class="app-btn" *ngIf="isLoggedIn | async" (click)="logout()">
       Logout
     </button>
   </div>

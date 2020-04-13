@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, BehaviorSubject } from 'rxjs';
+
+import { LoginService } from '../../services/login.service';
 import { User } from '../../models/user.model';
 
 @Component({
@@ -11,18 +14,23 @@ export class AppContentComponent implements OnInit {
     firstName: 'Ahsan',
     lastName: 'Ayaz'
   };
-  isLoggedIn: boolean;
-  constructor() {}
+
+  isLoggedIn: Observable<boolean>;
+
+  constructor(private loginService: LoginService) {
+    this.isLoggedIn = this.loginService.isLoggedIn();
+  }
 
   ngOnInit() {
-    this.isLoggedIn = false;
   }
 
   login() {
-    this.isLoggedIn = true;
+    this.loginService.login();
+    this.isLoggedIn = this.loginService.isLoggedIn();
   }
 
   logout() {
-    this.isLoggedIn = false;
+    this.loginService.logout();
+    this.isLoggedIn = this.loginService.isLoggedIn();
   }
 }

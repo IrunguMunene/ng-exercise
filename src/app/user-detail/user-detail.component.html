@@ -1,0 +1,17 @@
+<div class="container">
+    <!--Render only if user has a value-->
+    <div *ngIf="user">
+        <img src='{{ user.avatar }}' alt="">
+        <br>
+        <div class="user-block">
+            <p>
+                <span>Name: </span>
+                <span>{{ user.first_name }} </span>
+                <span>{{ user.last_name }}</span>
+            </p>
+            <p><span>Email: </span>{{ user.email }}</p>
+        </div>
+        <br>
+        <button (click)="goBack()">Go Back</button>
+    </div>    
+</div>

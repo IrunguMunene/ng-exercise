@@ -1,0 +1,8 @@
+<div class="container">
+    <h2>List of All Users</h2>
+    <ul *ngFor="let item of users">
+        <a routerLink="/detail/{{item.id}}">
+            <li>{{ item.first_name }} {{ item.last_name }}</li>
+        </a>
+    </ul>
+</div>
